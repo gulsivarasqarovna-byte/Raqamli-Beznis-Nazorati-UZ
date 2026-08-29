@@ -1,6 +1,6 @@
 :root {
-  color: #2c3e50;
-  background-color: #f5f7fa;
+  color: #f4f7ed;
+  background-color: #050b08;
 }
 
 * {
@@ -33,26 +33,26 @@ a:hover {
 }
 
 button {
-  border-radius: 6px;
+  border-radius: 8px;
   border: none;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #667eea;
-  color: white;
+  background-color: #b9f23d;
+  color: #0a110b;
   cursor: pointer;
   transition: all 0.25s;
 }
 
 button:hover {
-  background-color: #764ba2;
+  background-color: #d0ff66;
   transform: translateY(-1px);
 }
 
 button:focus,
 button:focus-visible {
-  outline: 2px solid #667eea;
+  outline: 2px solid #b9f23d;
   outline-offset: 2px;
 }
 

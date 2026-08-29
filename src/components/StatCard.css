@@ -53,3 +53,5 @@
     font-size: 1.5rem;
   }
 }
+
+.stat-card { background: linear-gradient(145deg, #1a211d, #080d0a); border-radius: 13px; padding: 18px; border: 1px solid #3a443d; min-height: 100px; transition: transform .2s, border-color .2s; }.stat-card:hover { transform: translateY(-2px); border-color: #b9f23d; }.stat-label { color: #dce4d7; font-size: .65rem; margin-bottom: 12px; font-weight: 600; }.stat-icon { font-size: .8rem; margin-right: 8px; }.stat-value { font-size: 1.7rem; font-weight: 700; color: #f4f7ed; margin: 0; }.stat-detail { color: #a1aca0; font-size: .62rem; margin-top: 7px; }.stat-card.blue .stat-icon { color: #82bfff; }.stat-card.lime .stat-icon { color: #b9f23d; }.stat-card.yellow .stat-icon { color: #f4d45c; }

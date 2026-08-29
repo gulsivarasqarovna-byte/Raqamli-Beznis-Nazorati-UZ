@@ -65,3 +65,5 @@
     padding: 1rem 1.2rem;
   }
 }
+
+.sidebar { width: 265px; background: #070e0a; border-right: 1px solid #263526; padding: 28px 14px 20px; display: flex; flex-direction: column; }.sidebar-brand { display: flex; gap: 11px; align-items: center; margin: 0 10px 30px; }.brand-mark { width: 38px; height: 38px; border: 2px solid #b9f23d; color: #b9f23d; border-radius: 11px; display: grid; place-items: center; }.sidebar-brand strong, .sidebar-brand small { display: block; }.sidebar-brand small { color: #8c9988; font-size: .62rem; margin-top: 3px; }.sidebar-label { color: #65725f; font-size: .58rem; margin: 0 12px 10px; }.services { margin-top: 22px; }.menu { padding: 0; }.menu-item { gap: 13px; padding: 12px 14px; color: #9ca99a; border: 1px solid transparent; border-radius: 9px; }.menu-item:hover, .menu-item.active { background: #10190f; color: #b9f23d; }.menu-item .label { font-size: .75rem; }.logout { margin-top: auto; background: transparent; border: 1px solid #394832; color: #e87f69; text-align: left; padding: 12px 14px; }

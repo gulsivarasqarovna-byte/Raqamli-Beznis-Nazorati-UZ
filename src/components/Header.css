@@ -69,3 +69,8 @@
     gap: 1rem;
   }
 }
+
+/* Screenshot theme */
+.header { height: 78px; background: #060d09; padding: 0 28px; border-bottom: 1px solid #263526; }
+.menu-btn { color: #b9f23d; }.logo { font-size: .82rem; }.logo-mark { color: #b9f23d; }
+.header-right { gap: 10px; }.language-btn, .mode-btn, .user-menu { padding: 9px 12px; color: #f4f7ed; background: #111b13; border: 1px solid #394832; border-radius: 8px; cursor: pointer; }.clock { color: #b9f23d; padding: 8px 12px; }.online-dot { width: 9px; height: 9px; border-radius: 50%; background: #b9f23d; display: inline-block; margin-right: 6px; }
