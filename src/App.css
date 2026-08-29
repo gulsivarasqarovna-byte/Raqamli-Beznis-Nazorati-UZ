@@ -1,0 +1,14 @@
+.app {
+  text-align: center;
+  padding: 2rem;
+}
+
+.app h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.app p {
+  font-size: 1.2em;
+  color: #888;
+}
