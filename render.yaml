@@ -5,7 +5,7 @@ services:
     plan: free
     
     # Build configuration - install all dependencies including devDependencies
-    buildCommand: npm install --legacy-peer-deps && npm run build
+    buildCommand: npm install --legacy-peer-deps && npx vite build
     
     # Start command
     startCommand: npm start
