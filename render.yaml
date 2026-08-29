@@ -4,8 +4,8 @@ services:
     env: node
     plan: free
     
-    # Build configuration - install all dependencies including devDependencies
-    buildCommand: npm install --legacy-peer-deps && npx vite build
+    # Build configuration
+    buildCommand: npm install && npm run build
     
     # Start command
     startCommand: npm start
@@ -14,8 +14,6 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: NPM_FLAGS
-        value: --legacy-peer-deps
     
     # Auto-deploy settings
     autoDeploy: true
