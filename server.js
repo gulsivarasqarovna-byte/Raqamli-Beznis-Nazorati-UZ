@@ -6,6 +6,27 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
+const envPath = path.join(__dirname, '.env');
+
+const loadEnvFile = async () => {
+  try {
+    const raw = await readFile(envPath, 'utf8');
+    for (const line of raw.split(/\r?\n/)) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#') || !trimmed.includes('=')) {
+        continue;
+      }
+
+      const [key, ...valueParts] = trimmed.split('=');
+      const value = valueParts.join('=').trim();
+      process.env[key.trim()] = value.replace(/^['"]|['"]$/g, '');
+    }
+  } catch (error) {
+    // Ignore missing .env file; environment variables may be provided externally.
+  }
+};
+
+await loadEnvFile();
 const PORT = process.env.PORT || 3000;
 const distPath = path.join(__dirname, 'dist');
 const indexPath = path.join(distPath, 'index.html');

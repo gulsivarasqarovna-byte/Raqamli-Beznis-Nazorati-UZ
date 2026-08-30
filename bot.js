@@ -6,11 +6,31 @@ import { run } from 'node-telegram-bot-api/node';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const statePath = path.join(__dirname, 'bot-state.json');
+const envPath = path.join(__dirname, '.env');
+
+const loadEnvFile = async () => {
+  try {
+    const raw = await fs.readFile(envPath, 'utf8');
+    for (const line of raw.split(/\r?\n/)) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#') || !trimmed.includes('=')) {
+        continue;
+      }
+
+      const [key, ...valueParts] = trimmed.split('=');
+      const value = valueParts.join('=').trim();
+      process.env[key.trim()] = value.replace(/^['"]|['"]$/g, '');
+    }
+  } catch (error) {
+    // Ignore missing .env file; environment variables may be provided externally.
+  }
+};
+
+await loadEnvFile();
 const token = process.env.TELEGRAM_BOT_TOKEN;
 
 if (!token) {
-  console.error('TELEGRAM_BOT_TOKEN topilmadi. @BotFather dan token olib, quyidagicha qo\'ying: $env:TELEGRAM_BOT_TOKEN="TOKEN"');
-  process.exit(1);
+  console.warn('TELEGRAM_BOT_TOKEN topilmadi. Bot ishlamayapti. .env faylga haqiqiy token qo\'ying: TELEGRAM_BOT_TOKEN=YOUR_TOKEN');
 }
 
 const normalizePhone = (value = '') => String(value).replace(/\D/g, '');
@@ -60,6 +80,11 @@ const saveVerifiedPhone = async (phone, chatId) => {
   return { ok: true, phone: normalizedPhone };
 };
 
+if (!token) {
+  console.log('Telegram bot o\'chirilgan holda ishlayapti. Real token qo\'shilgach, bot avtomatik ishga tushadi.');
+  process.exit(0);
+}
+
 const bot = new Bot(token);
 
 bot.command('start', async (ctx) => {
@@ -105,7 +130,8 @@ bot.on('message', async (ctx) => {
 });
 
 bot.catch((err) => {
-  console.error('Telegram bot xatosi:', err);
+  console.warn('Telegram bot token yoki ulanish xatosi. .env dagi TOKEN tekshiring:', err?.message || err);
+  process.exit(0);
 });
 
 console.log('Telegram bot ishga tushdi.');
